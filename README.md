@@ -31,7 +31,7 @@
 ב-Supabase — עריכה דרך Table Editor) ומערכים שכבר הוזנו בנקודות קיימות. הגדרת השדות: `js/config.js` → `EXTRA_FIELDS`.
 
 ## מיתוג — לוגו מנהלת תקומה
-הניחו את קובץ הלוגו הרשמי בנתיב **`field-collect/assets/tkuma-logo.png`** (PNG ברקע שקוף, רוחב ~600px).
+הניחו את קובץ הלוגו הרשמי בנתיב **`assets/tkuma-logo.png`** (PNG ברקע שקוף, רוחב ~600px).
 היישום מזהה אותו אוטומטית ומציג אותו בכותרת ובמסך הפתיחה; כל עוד הקובץ חסר מוצג סמליל חלופי.
 
 ## שכבות מפה (`js/config.js` → `LAYERS`)
@@ -57,17 +57,17 @@
 
 ## הרצה מקומית
 ```bash
-cd field-collect
 python -m http.server 5090     # http://localhost:5090
 ```
 GPS ומצלמה בטלפון דורשים HTTPS (או localhost).
 
 ## פריסה ל-Vercel
-New Project → אותו רפוזיטורי → **Root Directory: `field-collect`** → Deploy (אין שלב build).
+Add New → Project → בחירת המאגר `tkuma-field-collect` → Framework: **Other** → Deploy (אין שלב build, אין צורך ב-Root Directory).
+הקבצים `qa/` ו-`supabase/` אינם מתפרסמים (`.vercelignore`).
 
 ## מבנה
 ```
-field-collect/
+tkuma-field-collect/
 ├── index.html            # ממשק RTL למובייל
 ├── css/style.css
 ├── js/
@@ -81,6 +81,6 @@ field-collect/
 
 ## בדיקות QA
 ```bash
-cd field-collect && python -m http.server 5090 &
+python -m http.server 5090 &
 node qa/qa.mjs            # כ-60 בדיקות פונקציונליות במצב הדגמה (מובייל + דסקטופ)
 ```
